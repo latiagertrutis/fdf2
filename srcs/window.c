@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 04:03:14 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 03:05:51 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/23 23:28:28 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,6 @@ static t_2dpi	**initialize_map(t_point *map, t_win *win)
 	return (p);
 }
 
-static double	ini_size(t_win *win)
-{
-	double x;
-
-	x = ((double)W_WIDTH - 1.0) / ((double)win->map_wid);
-	if (x * (double)win->map_hei <= (double)W_HEIGHT)
-		return (x);
-	return (((double)W_HEIGHT - 1.0) / ((double)win->map_hei));
-	
-}
-
 static void		ini_window(t_win *win, void *mlx_id, t_point *map)
 {	
 	win->mlx_id = mlx_id;
@@ -67,19 +56,12 @@ static void		ini_window(t_win *win, void *mlx_id, t_point *map)
 	win->map_hei = map->y + 1;
 	win->map_max = 0;
 	win->map_min = 0;
-	win->coord_x.x = ini_size(win);
-	win->coord_x.y = 0.0;
-	win->coord_x.z = 0.0;
-	win->coord_y.x = 0.0;
-	win->coord_y.y = win->coord_x.x;
-	win->coord_y.z = 0.0;
-	win->coord_z.x = 0.0;
-	win->coord_z.y = 0.0;
-	win->coord_z.z = win->coord_x.x;
+	restart(win);
 	win->legend.ang_x = 0.0;
 	win->legend.ang_y = 0.0;
 	win->legend.ang_z = 0.0;
 	win->legend.p1 = 0;
+	win->legend.p2 = 0;
 	win->map = initialize_map(map, win);
 }
 

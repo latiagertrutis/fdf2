@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 19:05:37 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 03:33:02 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/23 23:40:52 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@
 #define K_POINT 46
 #define	K_SLASH 47
 #define K_P1 49
+#define K_P2 19
 #define K_N 110
 #define K_M 109
+#define K_R 15
 #endif
 
 #ifdef __APPLE__
@@ -64,9 +66,11 @@
 #define K_D_ARR 125
 #define K_POINT 47
 #define	K_SLASH 44
-#define K_P1 49
-#define K_N 110
-#define K_M 109
+#define K_P1 18
+#define K_P2 19
+#define K_N 45
+#define K_M 46
+#define K_R 15
 #endif
 
 typedef struct		s_point
@@ -100,6 +104,7 @@ typedef struct	s_legend
 	int			ang_y;
 	int			ang_z;
 	char		p1;
+	char		p2;
 }				t_legend;
 
 typedef struct	s_win
@@ -135,7 +140,8 @@ void			rotate_point(t_2dp *p, double x, double y, double z);
 void			draw_line(t_win *win, t_2dpi ini_p0, t_2dpi p0, t_2dpi pf);
 void			line_writter(t_win *win);
 void			create_image(t_win *win);
-void			project_point(t_2dpi *p);
+void			project_point(t_win *win, t_2dpi *p);
 void			put_legend(t_win *win);
 void			update_legend(t_win *win);
+void			restart(t_win *win);
 #endif

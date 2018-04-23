@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 05:00:09 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 03:37:46 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/23 23:37:00 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ static void		zoom(t_win *win, int keycode)
 		resize_point(&(win->coord_y), ZOOM);
 		resize_point(&(win->coord_z), ZOOM);
 	}
-	mlx_destroy_image(win->mlx_id, win->img_ptr);
-	line_writter(win);
 }
 
 static void		traslation(t_win *win, int keycode)
@@ -40,8 +38,6 @@ static void		traslation(t_win *win, int keycode)
 		traslate_point(&(win->origin), TRASLATION, 0.0);
 	else
 		traslate_point(&(win->origin), 0.0, TRASLATION);
-	mlx_destroy_image(win->mlx_id, win->img_ptr);
-	line_writter(win);
 }
 
 static void		select_rotation(t_win *win, double x, double y, double z)
@@ -68,9 +64,7 @@ static void		rotate(t_win *win, int keycode)
 		select_rotation(win, 0.0, 0.0, ANG);
 	else
 		select_rotation(win, 0.0, ANG, 0.0);
-	mlx_destroy_image(win->mlx_id, win->img_ptr);
 	update_legend(win);
-	line_writter(win);
 }
 
 int				key_pressed(int keycode, t_win *win)
@@ -89,23 +83,28 @@ int				key_pressed(int keycode, t_win *win)
 	else if (keycode == K_P1)
 	{
 		win->legend.p1 = win->legend.p1 ? 0 : 1;		
-		mlx_destroy_image(win->mlx_id, win->img_ptr);
 		update_legend(win);
-		line_writter(win);
 	}
+	else if (keycode == K_P2)
+	{
+		win->legend.p2 = win->legend.p2 ? 0 : 1;
+		update_legend(win);
+	}
+	else if (keycode == K_R)
+		restart(win);
 	else if (keycode == K_N || keycode == K_M)
 	{
 		if (keycode == K_N)
 			resize_point(&(win->coord_z), -ZOOM);
 		else
 			resize_point(&(win->coord_z), ZOOM);
-		mlx_destroy_image(win->mlx_id, win->img_ptr);
-		line_writter(win);
 	}
 	else if (keycode == K_ESC)
 	{
 		ft_putstr("\033[1;95mLeaving the program\n¯\\_(ツ)_/¯\n\033[0m");
 		exit(0);
 	}
+	mlx_destroy_image(win->mlx_id, win->img_ptr);
+	line_writter(win);
 	return (0);
 }

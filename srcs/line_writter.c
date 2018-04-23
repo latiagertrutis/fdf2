@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 14:56:28 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 03:07:46 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/23 23:41:11 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static t_2dpi	new_point(t_win *win, t_2dpi p0)
 	t_2dpi pf;
 
 	pf = vectadd(win->origin, esc_prod(win->coord_x, (double)p0.x), esc_prod(win->coord_y, (double)p0.y), esc_prod(win->coord_z, (double)p0.z));
-	if (win->legend.p1)
-		project_point(&pf);
+	if (win->legend.p1 || win->legend.p2)
+		project_point(win, &pf);
 	pf.z = (int)p0.z;
 	return (pf);
 }
@@ -46,7 +46,7 @@ void	line_writter(t_win *win)
 {
 	int i;
 	int j;
-	
+
 	create_image(win);
 	i = 0;
 	while (i < win->map_wid)
