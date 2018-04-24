@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 04:03:14 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 23:28:28 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/24 02:04:43 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,17 @@ static t_2dpi	**initialize_map(t_point *map, t_win *win)
 }
 
 static void		ini_window(t_win *win, void *mlx_id, t_point *map)
-{	
+{
 	win->mlx_id = mlx_id;
 	win->map_wid = map->x + 1;
 	win->map_hei = map->y + 1;
 	win->map_max = 0;
 	win->map_min = 0;
 	restart(win);
-	win->legend.ang_x = 0.0;
-	win->legend.ang_y = 0.0;
-	win->legend.ang_z = 0.0;
 	win->legend.p1 = 0;
 	win->legend.p2 = 0;
 	win->map = initialize_map(map, win);
+	win->legend.img_ptr = NULL;
 }
 
 t_win			*window(void *mlx_id, t_point *map)

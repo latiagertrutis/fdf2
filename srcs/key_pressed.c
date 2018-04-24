@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 05:00:09 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 23:37:00 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/24 03:03:45 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static void		rotate(t_win *win, int keycode)
 		select_rotation(win, 0.0, 0.0, ANG);
 	else
 		select_rotation(win, 0.0, ANG, 0.0);
-	update_legend(win);
 }
 
 int				key_pressed(int keycode, t_win *win)
@@ -81,29 +80,16 @@ int				key_pressed(int keycode, t_win *win)
 			keycode == K_D_ARR || keycode == K_POINT || keycode == K_SLASH)
 		rotate(win, keycode);
 	else if (keycode == K_P1)
-	{
-		win->legend.p1 = win->legend.p1 ? 0 : 1;		
-		update_legend(win);
-	}
+		win->legend.p1 = win->legend.p1 ? 0 : 1;
 	else if (keycode == K_P2)
-	{
 		win->legend.p2 = win->legend.p2 ? 0 : 1;
-		update_legend(win);
-	}
 	else if (keycode == K_R)
 		restart(win);
 	else if (keycode == K_N || keycode == K_M)
-	{
-		if (keycode == K_N)
-			resize_point(&(win->coord_z), -ZOOM);
-		else
-			resize_point(&(win->coord_z), ZOOM);
-	}
+		resize_point(&(win->coord_z), keycode == K_N ? -ZOOM : ZOOM);
 	else if (keycode == K_ESC)
-	{
-		ft_putstr("\033[1;95mLeaving the program\n¯\\_(ツ)_/¯\n\033[0m");
-		exit(0);
-	}
+		end_fdf();
+	update_legend(win);
 	mlx_destroy_image(win->mlx_id, win->img_ptr);
 	line_writter(win);
 	return (0);

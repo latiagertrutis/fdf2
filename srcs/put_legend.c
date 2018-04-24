@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 23:39:34 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/21 04:06:00 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/24 02:03:28 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ static void		background(t_win *win, void *id)
 	while (i < 300)
 	{
 		j = 0;
-		while (j < 500)			
-			mlx_pixel_put(win->mlx_id, id, i, j++,0x696969);
+		while (j < 500)
+			mlx_pixel_put(win->mlx_id, id, i, j++, 0x696969);
 		i++;
 	}
 }
@@ -98,20 +98,24 @@ void			put_legend(t_win *win)
 	if (!(win->legend.win_id = mlx_new_window(win->mlx_id, 300, 500, "Legend")))
 		exit_failure("Can not create window");
 	success("Window created");
-	win->legend.ang_x = 0.0;
-	win->legend.ang_y = 0.0;
-	win->legend.ang_z = 0.0;
-	win->legend.img_ptr = NULL;
 	background(win, win->legend.win_id);
 	put_color(win, win->legend.win_id);
 	put_max_min(win, win->legend.win_id);
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 190, 0x00b2b2, "TRASLATION:");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 210, 0xFFFFFF, "'A' - 'W' - 'S' - 'D'");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 230, 0x00b2b2, "ROTATION:");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 250, 0xFFFFFF, "X: LEFT ARROW - RIGHT ARROW");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 270, 0xFFFFFF, "Y: UP ARROW - DOWN ARROW");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 290, 0xFFFFFF, "Z: '.' - '/'");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 310, 0x00b2b2, "SIZE:");
-	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 330, 0xFFFFFF, "'-' - '='");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 190, 0x00b2b2, "TRASLATION:");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 210, 0xFFFFFF, "'A' - 'W' - 'S' - 'D'");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 230, 0x00b2b2, "ROTATION:");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 250, 0xFFFFFF, "X: LEFT ARROW - RIGHT ARROW");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 270, 0xFFFFFF, "Y: UP ARROW - DOWN ARROW");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 290, 0xFFFFFF, "Z: '.' - '/'");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 310, 0x00b2b2, "SIZE:");
+	mlx_string_put(win->mlx_id, win->legend.win_id,
+					20, 330, 0xFFFFFF, "'-' - '='");
 	update_legend(win);
 }

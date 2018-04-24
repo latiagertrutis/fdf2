@@ -6,16 +6,14 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 04:27:31 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/19 04:55:24 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/24 01:52:09 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-#include<stdio.h>
-
 static void		rx(double ang, t_2dp *p)
-{	
+{
 	double aux1;
 	double aux2;
 	double coseno;
@@ -28,8 +26,9 @@ static void		rx(double ang, t_2dp *p)
 	p->y = aux1;
 	p->z = aux2;
 }
+
 static void		ry(double ang, t_2dp *p)
-{	
+{
 	double aux1;
 	double aux2;
 	double coseno;
@@ -42,8 +41,9 @@ static void		ry(double ang, t_2dp *p)
 	p->z = aux1;
 	p->x = aux2;
 }
+
 static void		rz(double ang, t_2dp *p)
-{	
+{
 	double aux1;
 	double aux2;
 	double coseno;
@@ -64,7 +64,7 @@ static double	to_rad(double ang)
 
 void			rotate_point(t_2dp *p, double x, double y, double z)
 {
-	rx(to_rad(x), p);	
-	ry(to_rad(y), p);	
-	rz(to_rad(z), p);	
+	rx(to_rad(x), p);
+	ry(to_rad(y), p);
+	rz(to_rad(z), p);
 }

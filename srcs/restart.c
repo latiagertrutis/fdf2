@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 23:14:34 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/23 23:53:07 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/24 01:49:32 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ static double	ini_size(t_win *win)
 	if (x * (double)win->map_hei <= (double)W_HEIGHT)
 		return (x);
 	return (((double)W_HEIGHT - 1.0) / ((double)win->map_hei));
-	
 }
 
-void	restart(t_win *win)
-{	
+void			restart(t_win *win)
+{
 	win->coord_x.x = ini_size(win);
 	win->coord_x.y = 0.0;
 	win->coord_x.z = 0.0;
@@ -37,4 +36,7 @@ void	restart(t_win *win)
 	win->origin.x = 0.0;
 	win->origin.y = 0.0;
 	win->origin.z = 0.0;
+	win->legend.ang_x = 0.0;
+	win->legend.ang_y = 0.0;
+	win->legend.ang_z = 0.0;
 }
