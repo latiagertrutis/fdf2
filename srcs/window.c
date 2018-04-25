@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 04:03:14 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/24 02:04:43 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/25 05:47:36 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ t_win			*window(void *mlx_id, t_point *map)
 	ini_window(win, mlx_id, map);
 	line_writter(win);
 	put_legend(win);
+	free_list_map(map);
 	return (win);
 }

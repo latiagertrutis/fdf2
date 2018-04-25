@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 23:39:34 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/24 02:03:28 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/25 06:12:56 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,26 @@ static int		convert_to_color(int color)
 
 static void		put_max_min(t_win *win, void *w_id)
 {
-	if (win->map_max == win->map_min)
+	char *str;
+
+	if (win->map_max < 14)
 		mlx_string_put(win->mlx_id, w_id, 63, 19 + (14 - win->map_max) * 5,
-						convert_to_color(win->map_max), "<-FLOOR");
-	else
-	{
-		if (win->map_max < 14)
-			mlx_string_put(win->mlx_id, w_id, 63, 19 + (14 - win->map_max) * 5,
-							convert_to_color(win->map_max), "<-MAX");
-		else if (win->map_max >= 14)
-			mlx_string_put(win->mlx_id, w_id, 63, 19, 0xFF0000, "<-MAX");
-		if (win->map_min > -14)
-			mlx_string_put(win->mlx_id, w_id, 63, 89 - win->map_min * 5,
-							convert_to_color(win->map_min), "<-MIN");
-		else if (win->map_min <= -14)
-			mlx_string_put(win->mlx_id, w_id, 63, 159, 0x00FF00, "<-MIN");
-	}
+						convert_to_color(win->map_max), "<-MAX");
+	else if (win->map_max >= 14)
+		mlx_string_put(win->mlx_id, w_id, 63, 19, 0xFF0000, "<-MAX");
+	if (win->map_min > -14)
+		mlx_string_put(win->mlx_id, w_id, 63, 89 - win->map_min * 5,
+						convert_to_color(win->map_min), "<-MIN");
+	else if (win->map_min <= -14)
+		mlx_string_put(win->mlx_id, w_id, 63, 159, 0x00FF00, "<-MIN");
 	mlx_string_put(win->mlx_id, w_id, 130, 19, 0xFFFFFF, "Max: ");
-	mlx_string_put(win->mlx_id, w_id, 175, 19, 0xFFFFFF, ft_itoa(win->map_max));
+	mlx_string_put(win->mlx_id, w_id, 175, 19, 0xFFFFFF,
+					str = ft_itoa(win->map_max));
+	free(str);
 	mlx_string_put(win->mlx_id, w_id, 130, 40, 0xFFFFFF, "Min: ");
-	mlx_string_put(win->mlx_id, w_id, 175, 40, 0xFFFFFF, ft_itoa(win->map_min));
+	mlx_string_put(win->mlx_id, w_id, 175, 40, 0xFFFFFF,
+					str = ft_itoa(win->map_min));
+	free(str);
 }
 
 static void		put_color(t_win *win, void *id)
@@ -87,7 +87,7 @@ static void		background(t_win *win, void *id)
 	while (i < 300)
 	{
 		j = 0;
-		while (j < 500)
+		while (j < 400)
 			mlx_pixel_put(win->mlx_id, id, i, j++, 0x696969);
 		i++;
 	}
@@ -95,7 +95,7 @@ static void		background(t_win *win, void *id)
 
 void			put_legend(t_win *win)
 {
-	if (!(win->legend.win_id = mlx_new_window(win->mlx_id, 300, 500, "Legend")))
+	if (!(win->legend.win_id = mlx_new_window(win->mlx_id, 300, 400, "Legend")))
 		exit_failure("Can not create window");
 	success("Window created");
 	background(win, win->legend.win_id);
@@ -114,8 +114,10 @@ void			put_legend(t_win *win)
 	mlx_string_put(win->mlx_id, win->legend.win_id,
 					20, 290, 0xFFFFFF, "Z: '.' - '/'");
 	mlx_string_put(win->mlx_id, win->legend.win_id,
-					20, 310, 0x00b2b2, "SIZE:");
+					20, 310, 0x00b2b2, "SIZE:        RESTART:");
 	mlx_string_put(win->mlx_id, win->legend.win_id,
-					20, 330, 0xFFFFFF, "'-' - '='");
+					20, 330, 0xFFFFFF, "'-' - '='       R");
+	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 350, 0x00b2b2, "PERS:");
+	mlx_string_put(win->mlx_id, win->legend.win_id, 20, 370, 0xFFFFFF, "1 - 2");
 	update_legend(win);
 }

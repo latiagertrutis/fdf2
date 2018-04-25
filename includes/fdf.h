@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 19:05:37 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/24 03:53:07 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/25 05:45:17 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,4 +145,5 @@ void				put_legend(t_win *win);
 void				update_legend(t_win *win);
 void				restart(t_win *win);
 void				end_fdf(void);
+void				free_list_map(t_point *map);
 #endif
