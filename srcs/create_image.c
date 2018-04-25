@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 22:10:45 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/25 07:42:56 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/25 07:59:49 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	create_image(t_win *win)
 	int		bit_per_pixel;
 	int		size_line;
 	int		endian;
-	int		width = 1920;
-	int		height = 1080;
+	int		width = W_WIDTH;
+	int		height = W_HEIGHT;
 
 	bit_per_pixel = sizeof(int) * 8;
 	size_line = W_WIDTH * sizeof(int);
