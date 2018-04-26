@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 17:56:16 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/02/14 04:55:06 by jagarcia         ###   ########.fr       */
+/*   Updated: 2018/04/26 07:10:05 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strinsertfree(char *dst, char *str, int pos)
 	ft_strcat(new, dst + pos);
 	ft_strdel(&dst);
 	ft_strdel(&str);
-	return(new);
+	return (new);
 }

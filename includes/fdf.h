@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 19:05:37 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/25 05:45:17 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/26 07:53:52 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <sys/stat.h>
 # include <stdlib.h>
 # include <math.h>
-# include <stdio.h>
 # include <errno.h>
 # include "mlx.h"
 # include "get_next_line.h"

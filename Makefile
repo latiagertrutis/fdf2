@@ -6,7 +6,7 @@
 #    By: mrodrigu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 17:20:08 by mrodrigu          #+#    #+#              #
-#    Updated: 2018/04/25 04:51:44 by mrodrigu         ###   ########.fr        #
+#    Updated: 2018/04/26 07:59:58 by mrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,9 @@ HEADERS = $(INCL_DIR)fdf.h
 
 GNL_FUNC = get_next_line.c
 
-LIBFT = srcs/libft/libft.a
+LIBFT = libft/libft.a
 
-LIBFT_DIR = srcs/libft/
+LIBFT_DIR = libft/
 
 SRC_DIR = srcs/
 

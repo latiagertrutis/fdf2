@@ -6,7 +6,7 @@
 /*   By: mrodrigu <mrodrigu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 04:10:59 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/04/25 05:50:58 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/26 07:04:35 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int		main(int ac, char **av)
 	win = window(id, map);
 	hooks(win);
 	mlx_loop(id);
+	return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: mrodrigu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:31:25 by mrodrigu          #+#    #+#             */
-/*   Updated: 2018/02/26 19:34:03 by mrodrigu         ###   ########.fr       */
+/*   Updated: 2018/04/26 07:54:20 by mrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include "../srcs/libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 
