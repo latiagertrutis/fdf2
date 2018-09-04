@@ -15,4 +15,5 @@ Arrows & '.' '/' => Rotation.
 
 ## Screenshot
 
-![alt text](
+![alt text](https://github.com/latiagertrutis/fdf2/blob/master/images/IMG-20180331-WA0000.jpg)
+![alt text](https://github.com/latiagertrutis/fdf2/blob/master/images/IMG-20180331-WA0003.jpg)
